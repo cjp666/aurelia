@@ -1,7 +1,7 @@
 import {inject} from 'aurelia-framework';
-import {DataCache} from "DataCache";
+// import {DataCache} from "DataCache";
 
-@inject(DataCache)
+@inject("Cache")
 export class Events {
     constructor(dataCache) {
         this.events = [
