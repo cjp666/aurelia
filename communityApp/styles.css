@@ -1,5 +1,6 @@
 .rbox {
-    border-radius: 15px;
+    border-radius: 5px;
     border: 2px solid #8AC007;
     padding: 10px;
+    margin-bottom: 2px;
 }
