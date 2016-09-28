@@ -5,7 +5,7 @@ gulp.task("browser-sync", function () {
     browserSync({
         files: [
             "styles.css",
-            "src/*.*"
+            "src/**/*.*"
         ],
         server: "./"
     });
