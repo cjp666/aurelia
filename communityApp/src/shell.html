@@ -17,9 +17,9 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Events <span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Discussion</a></li>
-					<li><a href="#">Job Board</a></li>
+                    <li repeat.for="route of router.navigation" class="${route.isActive ? 'active' : ''}">
+                        <a data-toggle="collapse" data-target="#bs-example-navbar-collapse-1.in" href.bind="route.href">${route.title}</a>
+                    </li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
@@ -27,10 +27,10 @@
 
     <div class="containter-fluid">
         <div class="col-xs-10">
-            <compose view-model="events"></compose>
+            <router-view></router-view>
         </div>
         <div class="col-xs-2">
-            <compose view-model="sponsors"></compose>
+            <compose view-model="sponsors/sponsors"></compose>
         </div>
     </div>
 </template>
