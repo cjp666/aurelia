@@ -19,8 +19,13 @@
 				<ul class="nav navbar-nav">
                     <li repeat.for="route of router.navigation" class="${route.isActive ? 'active' : ''}">
                         <a data-toggle="collapse" data-target="#bs-example-navbar-collapse-1.in" href.bind="route.href">${route.title}</a>
-                    </li>
+                    </li>                    
 				</ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <i class="fa fa-cog fa-spin fa-3x" if.bind="router.isNavigating"></i>
+                    </li>
+                </ul>
 			</div>
 		</div>
 	</nav>

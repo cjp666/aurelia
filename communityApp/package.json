@@ -19,6 +19,7 @@
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0",
       "aurelia-framework": "npm:aurelia-framework@^1.0.3",
       "bootstrap": "github:twbs/bootstrap@^3.3.7",
+      "font-awesome": "npm:font-awesome@^4.6.3",
       "moment": "npm:moment@^2.15.1"
     },
     "devDependencies": {
