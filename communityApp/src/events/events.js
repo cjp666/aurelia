@@ -34,9 +34,4 @@ export class Events {
                 this.router.generate('eventDetail', { eventId: item.id }));
         });
     }
-
-    gotoDiscussion() {
-        // this.router.navigate('#/discussion');
-        this.router.navigateToRoute('eventDetail', { eventId: this.events[0].id });
-    }
 }
