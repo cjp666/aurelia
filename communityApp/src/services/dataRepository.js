@@ -2,27 +2,37 @@ import {eventsData} from "services/eventsData";
 import moment from "moment";
 import {log} from "log";
 
-export class DataRepository {
-    constructor() {
+function filterAndFormat(pastOrFuture, events) {
+    var results = JSON.parse(JSON.stringify(events));
+    if (pastOrFuture === "past") {
+        results = results.filter(item => moment(item.dateTime) < moment());
+    }
+    else if (pastOrFuture === "future") {
+        results = results.filter(item => moment(item.dateTime) > moment());
     }
 
-    getEvents() {
+    results.forEach(item => {
+        var dateTime = moment(item.dateTime)
+            .format("MM/DD/YYYY HH:mm");
+        item.dateTime = dateTime;
+    });
+
+    return results;
+}
+
+export class DataRepository {
+    getEvents(pastOrFuture) {
         var promise = new Promise((resolve) => {
             if (!this.events) {
-                log.info("retrieving events data");
+                log.info("retrieving events data " + pastOrFuture);
                 setTimeout(_ => {
-                    this.events = eventsData;
-                    this.events.forEach(item => {
-                        var dateTime = moment(item.dateTime)
-                            .format("DD/MM/YYYY HH:mm");
-                        item.dateTime = dateTime;
-                        resolve(this.events);
-                    });
+                    this.events = eventsData.sort((a, b) => a.dateTime >= b.dateTime ? 1 : -1);
+                    resolve(filterAndFormat(pastOrFuture, this.events));
                 }, 2000);
             }
             else {
-                log.info("using cache for events data");
-                resolve(this.events);
+                log.info("using cache for events data " + pastOrFuture);
+                resolve(filterAndFormat(pastOrFuture, this.events));
             }
         });
         return promise;

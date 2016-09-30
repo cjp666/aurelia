@@ -2,7 +2,7 @@ export var eventsData = [
     {
         "id": 124,
         "description": "REST is an architectural style for building HTTP Web API services that is often misunderstood - many people claim to be building RESTful services but do not know the things they need to be doing to truly qualify as a RESTful service. In this session, you will learn the fundamental architectural constraints that define REST and how you can implement those constraints using ASP.NET Web API. You’ll learn what things you need to do to implement the capabilities that all Web API services should do, such as focus on resources, representations, URIs, content-negotiation, HTTP verbs and headers and so on, as well as the concept of hypermedia and how it pertains to RESTful services.",
-        "dateTime": "2013-02-26T23:30:00.000Z",
+        "dateTime": "2017-02-26T23:30:00.000Z",
         "title": "Designing RESTful Services with ASP.NET Web API",
         "speaker": "Brian Noyes",
         "image": "BrianNoyes.png"
@@ -34,7 +34,7 @@ export var eventsData = [
     {
         "id": 125,
         "description": "When you build a business application, there are a different set of concerns that come in that go beyond quickly throwing together an application and getting it in the marketplace. You need to think more about how to build the application in a way that is maintainable, testable, and easy to evolve over time to suit the business needs. Microsoft patterns and practices has put together guidance on how to do this that you can leverage, called Project Kona. In this session, you will learn straight from a Kona team member what the Kona guidance includes and how to leverage it in your own projects. You'll learn how to set up your application to do MVVM, navigation, and state persistence while still integrating nicely with the WinRT platform and keeping good separating of concerns and loose coupling. You'll see how to manage dependencies, call Web API services, integrate with platform features like Settings charm flyouts, Search, and more.",
-        "dateTime": "2013-02-26T23:30:00.000Z",
+        "dateTime": "2017-02-26T23:30:00.000Z",
         "title": "Building Windows Store Line of Business Applications with Kona - Brian Noyes (RD/MVP)",
         "speaker": "Brian Noyes",
         "image": "BrianNoyes.png"
@@ -58,7 +58,7 @@ export var eventsData = [
     {
         "id": 126,
         "description": "Whether you're building apps for the Windows Store, or for phones or tablets, many apps today need a common way to store and access data. In this session, Microsoft Technical Evangelist G. Andrew Duthie will provide an overview of different tools for building robust back-end REST-style services that can be leveraged across multiple platforms, including solutions based on WCF Data Services, ASP.NET Web API, and the new Windows Azure Mobile Services.  Learn how you can quickly and easily get a back-end data store and services up and running, so you can spend more time on building a fantastic Windows Store or other mobile app.",
-        "dateTime": "2013-03-26T22:30:00.000Z",
+        "dateTime": "2017-03-26T22:30:00.000Z",
         "title": "Building Back-end Services for Windows Store Apps - G. Andrew Duthie (Microsoft)",
         "speaker": "G. Andrew Duthie",
         "image": "GAndrewDuthie.jpg"

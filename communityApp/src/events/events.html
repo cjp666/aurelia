@@ -1,5 +1,8 @@
 <template>
-    <div repeat.for="event of events">
-        <compose model.bind="event" view="events/event.html"></compose>
-    </div>
+    <ul class="nav nav-tabs">
+        <li repeat.for="route of router.navigation" class="${route.isActive ? 'active' : ''}">
+            <a href.bind="route.href" class="bigLink">${route.title}</a>
+        </li>
+    </ul>
+    <router-view></router-view>
 </template>
