@@ -1,4 +1,5 @@
 import {log} from "log";
+import toastr from "toastr";
 
 export class Shell {
     configureRouter(config, router) {
@@ -8,10 +9,10 @@ export class Shell {
 
         config.options.pushState = true;
 
-        config.addPipelineStep("authorize", LogNextStep);
-        config.addPipelineStep("preActivate", LogNextStep);
-        config.addPipelineStep("preRender", LogNextStep);
-        config.addPipelineStep("postRender", LogNextStep);
+        config.addPipelineStep("authorize", NavToastStep);
+        // config.addPipelineStep("preActivate", LogNextStep);
+        // config.addPipelineStep("preRender", LogNextStep);
+        // config.addPipelineStep("postRender", LogNextStep);
 
         config.map([
             { route: ["", "events", "abc"], viewPorts: { mainContent: { moduleId: "events/events" }, sideBar: { moduleId: "sideBar/sponsors" } }, name: "Events", title: "Events", nav: true },
@@ -26,6 +27,22 @@ class LogNextStep {
     run(navigationInstruction, next) {
         return next().then(result => {
             log.debug(JSON.stringify(result));
+            return result;
+        });
+    }
+}
+
+class NavToastStep {
+    run(navigationInstruction, next) {
+        return next().then(result => {
+            log.debug(result.status);
+            if (result.status === "cancelled" || result.status === "canceled") {
+                log.error("Navigation cancelled");
+                toastr.error("Navigation cancelled");
+            }
+            else if (result.status === "completed") {
+                toastr.success("Navigation complete");
+            }
             return result;
         });
     }
