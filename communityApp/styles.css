@@ -1,8 +1,15 @@
 .rbox {
     border-radius: 5px;
-    border: 2px solid #8AC007;
     padding: 10px;
     margin-bottom: 2px;
+}
+
+.rboxEven {
+    border: 2px solid #8AC007;
+}
+
+.rboxOdd {
+    border: 2px solid cyan;
 }
 
 .speakerImage {
