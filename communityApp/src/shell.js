@@ -16,21 +16,22 @@ export class Shell {
 
         config.map([
             { route: ["", "events", "abc"], viewPorts: { mainContent: { moduleId: "events/events" }, sideBar: { moduleId: "sideBar/sponsors" } }, name: "Events", title: "Events", nav: true },
-            { route: "jobs", viewPorts: { mainContent: { moduleId: "jobs/jobs" }, sideBar: { moduleId: "sideBar/sponsors" } }, title: "Jobs", nav: true },
+            { route: "jobs", viewPorts: { mainContent: { moduleId: "jobs/jobs" }, sideBar: { moduleId: "sideBar/sponsors" } }, title: "Jobs", nav: true, name: "jobs" },
             { route: "discussion", viewPorts: { mainContent: { moduleId: "discussion/discussion" }, sideBar: { moduleId: "sideBar/ads" } } , title: "Discussion", nav: true },
-            { route: "eventDetail/:eventId", viewPorts: { mainContent: { moduleId: "events/eventDetail" }, sideBar: { moduleId: "sideBar/ads" } }, name: "eventDetail" }
+            { route: "eventDetail/:eventId", viewPorts: { mainContent: { moduleId: "events/eventDetail" }, sideBar: { moduleId: "sideBar/ads" } }, name: "eventDetail" },
+            { route: "addJob", viewPorts: { mainContent: { moduleId: "jobs/addJob" }, sideBar: { moduleId: "sideBar/sponsors" } }, name: "addJob" }
         ]);
     }
 }
 
-class LogNextStep {
-    run(navigationInstruction, next) {
-        return next().then(result => {
-            log.debug(JSON.stringify(result));
-            return result;
-        });
-    }
-}
+// class LogNextStep {
+//     run(navigationInstruction, next) {
+//         return next().then(result => {
+//             log.debug(JSON.stringify(result));
+//             return result;
+//         });
+//     }
+// }
 
 class NavToastStep {
     run(navigationInstruction, next) {
