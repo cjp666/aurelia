@@ -24,14 +24,12 @@ export class DataRepository {
     getEvents(pastOrFuture) {
         var promise = new Promise((resolve) => {
             if (!this.events) {
-                log.info("retrieving events data " + pastOrFuture);
                 setTimeout(_ => {
                     this.events = eventsData.sort((a, b) => a.dateTime >= b.dateTime ? 1 : -1);
                     resolve(filterAndFormat(pastOrFuture, this.events));
-                }, 2000);
+                }, 100);
             }
             else {
-                log.info("using cache for events data " + pastOrFuture);
                 resolve(filterAndFormat(pastOrFuture, this.events));
             }
         });

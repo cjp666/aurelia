@@ -1,7 +1,6 @@
 import {inject} from "aurelia-framework";
 import {Router, activationStrategy} from "aurelia-router";
 import {DataRepository} from "services/dataRepository";
-import {log} from "log";
 
 @inject(DataRepository, Router)
 export class EventsList {
@@ -12,7 +11,6 @@ export class EventsList {
 
     activate(params, routeConfig) {
         var pastOrFuture = routeConfig.name == '' ? 'future' : routeConfig.name;
-        log.info("activate with " + pastOrFuture);
 
         return this.dataRepository.getEvents(pastOrFuture).then(events => {
             if (params.speaker || params.topic) {
@@ -39,22 +37,7 @@ export class EventsList {
         });
     }
 
-    canActivate(){
-        log.debug("canActivate");
-        return true;
-    }
-
-    canDeactivate() {
-        log.debug("canDeactivate");
-        return true;
-    }
-
-    deactivate() {
-        log.debug("deactivate");
-    }
-
     determineActivationStrategy() {
-        log.debug("determineActivationStrategy");
         return activationStrategy.invokeLifecycle;
     }
 }
