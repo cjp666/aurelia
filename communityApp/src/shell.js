@@ -4,6 +4,8 @@ export class Shell {
 
         config.title = "Chirs's community group";
 
+        config.options.pushState = true;
+
         config.map([
             { route: ["", "events", "abc"], viewPorts: { mainContent: { moduleId: "events/events" }, sideBar: { moduleId: "sideBar/sponsors" } }, name: "Events", title: "Events", nav: true },
             { route: "jobs", viewPorts: { mainContent: { moduleId: "jobs/jobs" }, sideBar: { moduleId: "sideBar/sponsors" } }, title: "Jobs", nav: true },
